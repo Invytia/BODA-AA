@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda Anahy y Ariel - Invytia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --emerald: #1B4A34; /* Verde Esmeralda */
+            --gold: #D4AF37;    /* Dorado */
+            --white: #F9F9F9;
+            --text-dark: #2C2C2C;
+            --text-light: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #E6EBE6; /* Fondo botánico sutil / gris verdoso */
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><path d="M50 0 C70 30, 80 70, 50 100 C20 70, 30 30, 50 0 Z" fill="rgba(27,74,52,0.03)"/></svg>');
+        }
+
+        .invitation-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: var(--white);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, .names {
+            font-family: 'Great Vibes', cursive;
+            font-weight: normal;
+        }
+
+        .gold-text { color: var(--gold); }
+        .green-text { color: var(--emerald); }
+
+        /* Sections */
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .bg-white { background-color: var(--white); color: var(--text-dark); }
+        .bg-green { background-color: var(--emerald); color: var(--text-light); }
+
+        /* Torn Paper Dividers (Efecto de papel rasgado) */
+        .tear-white-to-green, .tear-green-to-white {
+            width: 100%;
+            height: 30px;
+            display: block;
+            margin-top: -1px; /* Evitar líneas en blanco */
+        }
+
+        /* Hero */
+        .hero {
+            padding-top: 60px;
+            padding-bottom: 20px;
+        }
+        .hero .names {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--emerald);
+        }
+        .hero .ampersand {
+            color: var(--gold);
+            font-size: 2.5rem;
+            display: block;
+            margin: -10px 0;
+        }
+        .photo-frame {
+            background: #fff;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 0 auto 30px auto;
+            width: 80%;
+            transform: rotate(-2deg);
+        }
+        .photo-frame img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            aspect-ratio: 4/5;
+            background-color: #ddd; 
+        }
+        .date-highlight {
+            font-size: 2rem;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            padding: 10px 0;
+            margin: 20px auto;
+            width: 60%;
+            color: var(--emerald);
+            font-style: italic;
+        }
+
+        /* Parents */
+        .parents h2 {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .parents p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .role-title {
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        /* Calendar */
+        .calendar-section {
+            padding: 20px;
+        }
+        .month-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        .day-name { color: var(--gold); font-style: italic; font-weight: bold; }
+        .day { padding: 5px; }
+        .heart-day {
+            background-color: var(--white);
+            color: var(--emerald);
+            border-radius: 50%;
+            font-weight: bold;
+            position: relative;
+        }
+        .heart-day::after {
+            content: '♥';
+            position: absolute;
+            top: -12px;
+            right: -5px;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        /* Itinerary */
+        .timeline {
+            position: relative;
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background: var(--gold);
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 30px;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-icon {
+            position: absolute;
+            left: 5px;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background: var(--emerald);
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+        .time { color: var(--gold); font-weight: bold; font-size: 1.2rem; }
+        .event { font-size: 1.1rem; }
+
+        /* Locations */
+        .location-card {
+            margin-bottom: 40px;
+        }
+        .location-card h3 {
+            font-size: 2.5rem;
+            color: var(--emerald);
+            margin-bottom: 10px;
+        }
+        .map-container {
+            width: 100%;
+            height: 200px;
+            background: #e0e0e0;
+            margin: 15px 0;
+            border: 2px solid var(--emerald);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Dress Code */
+        .dress-code h2 {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .colors {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--gold);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* RSVP */
+        .rsvp-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+        .rsvp-form input {
+            padding: 12px;
+            border: 1px solid var(--emerald);
+            border-radius: 5px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .btn {
+            background-color: var(--emerald);
+            color: var(--gold);
+            border: none;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-family: 'Cormorant Garamond', serif;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: var(--gold);
+            color: var(--emerald);
+        }
+
+        /* Music Button Sticky */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            color: var(--emerald);
+            border: none;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform 0.2s;
+        }
+        .music-btn:hover { transform: scale(1.1); }
+        .music-btn svg { width: 20px; height: 20px; fill: currentColor; }
+
+    </style>
+</head>
+<body>
+
+    <audio id="bg-music" loop>
+        <source src="assets/song.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <button class="music-btn" id="play-btn" onclick="togglePlay()">
+        <svg id="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="icon-pause" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </button>
+
+    <div class="invitation-container">
+
+        <section class="section bg-white hero">
+            <h1 class="names">Anahy <span class="ampersand">&</span> Ariel</h1>
+            
+            <div class="photo-frame">
+                <img src="assets/portada.jpg" alt="Anahy y Ariel" onerror="this.src='https://via.placeholder.com/300x400/1B4A34/D4AF37?text=Foto+Novios'">
+            </div>
+
+            <div class="date-highlight">
+                Agosto 22, 2026
+            </div>
+            <p style="font-size: 1.2rem; margin-top: 20px;">¡Nos casamos y queremos celebrarlo contigo!</p>
+        </section>
+
+        <svg class="tear-white-to-green" viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,30 L1200,30 L1200,15 Q1150,5 1100,20 T1000,10 T900,25 T800,15 T700,25 T600,10 T500,20 T400,5 T300,20 T200,10 T100,25 T0,15 Z" fill="#1B4A34"/>
+        </svg>
+
+        <section class="section bg-green parents">
+            <h2>Con la bendición de Dios y de nuestros padres</h2>
+            
+            <div class="role-title">Padres de la Novia</div>
+            <p>David Pérez Ponce<br>Mónica Montero Morales</p>
+
+            <div class="role-title">Padres del Novio</div>
+            <p>Armando Cardel Ramírez<br>Andrea Cristina Ortiz Castro</p>
+
+            <div class="role-title">Padrinos de Velación</div>
+            <p>Ivan de Jesús Cueto Sosa<br>Cruz Areni Molina Torres</p>
+        </section>
+
+        <section class="section bg-green calendar-section">
+            <h2 class="month-title">Agosto 2026</h2>
+            <div class="calendar">
+                <div class="day-name">Do</div><div class="day-name">Lu</div><div class="day-name">Ma</div><div class="day-name">Mi</div><div class="day-name">Ju</div><div class="day-name">Vi</div><div class="day-name">Sa</div>
+                <div></div><div></div><div></div><div></div><div></div><div></div><div class="day">1</div>
+                <div class="day">2</div><div class="day">3</div><div class="day">4</div><div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div>
+                <div class="day">9</div><div class="day">10</div><div class="day">11</div><div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div>
+                <div class="day">16</div><div class="day">17</div><div class="day">18</div><div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day heart-day">22</div>
+                <div class="day">23</div><div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div>
+                <div class="day">30</div><div class="day">31</div>
+            </div>
+        </section>
+
+        <section class="section bg-green">
+            <h2 style="font-size: 2.5rem; color: var(--gold); margin-bottom: 30px;">Itinerario del Día</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">⛪</div>
+                    <div class="time">16:00 Hrs</div>
+                    <div class="event">Ceremonia Religiosa</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🥂</div>
+                    <div class="time">18:00 Hrs</div>
+                    <div class="event">Recepción y Cóctel</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🍽️</div>
+                    <div class="time">19:30 Hrs</div>
+                    <div class="event">Banquete</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-icon">🎵</div>
+                    <div class="time">21:00 Hrs</div>
+                    <div class="event">Apertura de Pista</div>
+                </div>
+            </div>
+        </section>
+
+        <svg class="tear-green-to-white" viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,30 L1200,30 L1200,15 Q1150,5 1100,20 T1000,10 T900,25 T800,15 T700,25 T600,10 T500,20 T400,5 T300,20 T200,10 T100,25 T0,15 Z" fill="#F9F9F9"/>
+        </svg>
+
+        <section class="section bg-white">
+            <div class="location-card">
+                <h3>Ceremonia Religiosa</h3>
+                <p>Nombre de la Iglesia (Pendiente)</p>
+                <p>Dirección Pendiente</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <div class="location-card">
+                <h3>Recepción</h3>
+                <p>Lugar del Evento (Pendiente)</p>
+                <p>Dirección Pendiente</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <svg class="tear-white-to-green" viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,30 L1200,30 L1200,15 Q1150,5 1100,20 T1000,10 T900,25 T800,15 T700,25 T600,10 T500,20 T400,5 T300,20 T200,10 T100,25 T0,15 Z" fill="#1B4A34"/>
+        </svg>
+
+        <section class="section bg-green dress-code">
+            <h2>Dress Code</h2>
+            <p style="font-size: 1.3rem;">Formal / Elegante</p>
+            <p style="margin-top: 10px; font-style: italic;">Nos encantaría que nos acompañes usando estos tonos:</p>
+            <div class="colors">
+                <div class="color-swatch" style="background-color: var(--emerald);"></div>
+                <div class="color-swatch" style="background-color: #0b2e1f;"></div>
+                <div class="color-swatch" style="background-color: var(--gold);"></div>
+                <div class="color-swatch" style="background-color: #000000;"></div>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.9rem;">* Se reserva el color blanco para la novia</p>
+        </section>
+
+        <svg class="tear-green-to-white" viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,30 L1200,30 L1200,15 Q1150,5 1100,20 T1000,10 T900,25 T800,15 T700,25 T600,10 T500,20 T400,5 T300,20 T200,10 T100,25 T0,15 Z" fill="#F9F9F9"/>
+        </svg>
+
+        <section class="section bg-white">
+            <h2 style="font-size: 2.5rem; color: var(--emerald); margin-bottom: 10px;">Asistencia</h2>
+            <p>Esperamos contar con tu presencia en este día tan especial.</p>
+            
+            <div class="rsvp-form">
+                <input type="text" id="guest-name" placeholder="Escribe tu nombre y apellidos">
+                <button class="btn" onclick="confirmAsistencia()">Confirmar por WhatsApp</button>
+            </div>
+
+            <div class="photo-frame" style="margin-top: 40px; transform: rotate(2deg);">
+                <img src="assets/despedida.jpg" alt="Cierre" onerror="this.src='https://via.placeholder.com/300x400/D4AF37/1B4A34?text=Foto+Final'">
+            </div>
+            
+            <h2 class="names" style="color: var(--emerald); margin-top: 20px;">Anahy & Ariel</h2>
+        </section>
+
+    </div>
+
+    <script>
+        const audio = document.getElementById("bg-music");
+        const playIcon = document.getElementById("icon-play");
+        const pauseIcon = document.getElementById("icon-pause");
+        let isPlaying = false;
+
+        // Función para pausar y reanudar la música desde el botón pegajoso
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playIcon.style.display = "block";
+                pauseIcon.style.display = "none";
+            } else {
+                audio.play().catch(error => {
+                    console.log("Autoplay bloqueado hasta interacción del usuario.", error);
+                });
+                playIcon.style.display = "none";
+                pauseIcon.style.display = "block";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Auto-reproducción oculta en el primer toque/click general de la pantalla (evita bloqueos de navegador)
+        document.body.addEventListener('click', function() {
+            if (!isPlaying && audio.paused) {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    playIcon.style.display = "none";
+                    pauseIcon.style.display = "block";
+                }).catch(e => console.log(e));
+            }
+        }, { once: true });
+
+        // Función para enviar mensaje de WhatsApp
+        function confirmAsistencia() {
+            const nombre = document.getElementById("guest-name").value.trim();
+            if (nombre === "") {
+                alert("Por favor, ingresa tu nombre para confirmar.");
+                return;
+            }
+            // Número especificado y texto predefinido
+            const phone = "522292115871";
+            const text = `¡Hola! Confirmo mi asistencia a la boda de Anahy y Ariel. Mi nombre es: ${nombre}`;
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, "_blank");
+        }
+    </script>
+</body>
+</html>
