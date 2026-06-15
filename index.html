@@ -11,7 +11,7 @@
         :root {
             --emerald: #1B4A34; 
             --gold: #D4AF37;    
-            --bg-color: #FAFAFA; /* Fondo marfil/gris muy claro */
+            --bg-color: #FAFAFA; 
             --text-dark: #2C2C2C;
             --white: #FFFFFF;
         }
@@ -84,7 +84,7 @@
             padding: 0 10px;
         }
         .section-light .elegant-divider::after { background: var(--bg-color); }
-        .section-dark .elegant-divider::after { background: #123324; /* Mezcla con el fondo verde */ }
+        .section-dark .elegant-divider::after { background: #123324; }
 
         /* Animaciones Premium */
         .reveal {
@@ -198,7 +198,7 @@
             margin-top: 5px;
         }
 
-        /* Padres y Textos en Fondo Oscuro */
+        /* Textos en Fondo Oscuro */
         .section-dark h2 {
             font-size: 3rem;
             color: var(--gold);
@@ -366,6 +366,17 @@
             border: none;
         }
 
+        /* Regalos */
+        .gift-icon {
+            margin: 20px 0;
+        }
+        .gift-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: var(--gold);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
         /* RSVP */
         .rsvp-form {
             display: flex;
@@ -384,9 +395,18 @@
             background: transparent;
             transition: all 0.3s;
         }
+        .section-dark .rsvp-form input {
+            color: var(--white);
+        }
+        .section-dark .rsvp-form input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
         .rsvp-form input:focus {
             outline: none;
             border-bottom: 2px solid var(--emerald);
+        }
+        .section-dark .rsvp-form input:focus {
+            border-bottom: 2px solid var(--gold);
         }
 
         /* Botón Flotante de Música */
@@ -532,7 +552,22 @@
         </section>
 
         <section class="section section-light">
-            <h2 class="reveal" style="font-size: 3.5rem; color: var(--emerald); margin-bottom: 10px;">Asistencia</h2>
+            <h2 class="reveal" style="font-size: 3.5rem; color: var(--emerald); margin-bottom: 10px;">Mesa de Regalos</h2>
+            
+            <div class="gift-icon reveal delay-1">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/>
+                </svg>
+            </div>
+            
+            <h3 class="reveal delay-1" style="font-size: 2rem; color: var(--gold); margin-bottom: 15px;">Lluvia de Sobres</h3>
+            <p class="reveal delay-2" style="font-size: 1.3rem; line-height: 1.5; padding: 0 10px; color: var(--text-dark);">
+                El regalo más hermoso que nos pueden dar es su presencia, pero si desean tener un detalle adicional con nosotros, contaremos con un buzón para lluvia de sobres el día del evento.
+            </p>
+        </section>
+
+        <section class="section section-dark">
+            <h2 class="reveal" style="font-size: 3.5rem; color: var(--gold); margin-bottom: 10px;">Asistencia</h2>
             <p class="reveal delay-1" style="font-size: 1.3rem;">Esperamos contar con tu presencia en este día tan especial.</p>
             
             <div class="rsvp-form reveal delay-2">
@@ -540,11 +575,11 @@
                 <button class="btn" onclick="confirmAsistencia()">Confirmar por WhatsApp</button>
             </div>
 
-            <div class="elegant-image-container reveal reveal-scale" style="margin-top: 60px; border-radius: 10px 10px 200px 200px;">
+            <div class="elegant-image-container reveal reveal-scale" style="margin-top: 60px; border-radius: 10px 10px 200px 200px; border-color: rgba(212, 175, 55, 0.2);">
                 <img src="assets/despedida.jpg" alt="Cierre" class="elegant-image" style="border-radius: 5px 5px 190px 190px;" onerror="this.src='https://via.placeholder.com/400x500/D4AF37/1B4A34?text=Foto+Final'">
             </div>
             
-            <h2 class="names reveal delay-1" style="color: var(--emerald); margin-top: 20px; font-size: 4.5rem;">Anahy & Ariel</h2>
+            <h2 class="names reveal delay-1" style="color: var(--gold); margin-top: 20px; font-size: 4.5rem;">Anahy & Ariel</h2>
         </section>
 
     </div>
