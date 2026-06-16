@@ -176,7 +176,7 @@
             align-items: center;
             position: relative;
         }
-        .countdown-item:not(:last-child)::after {
+        .countdown-item:not(:last-child):after {
             content: ':';
             position: absolute;
             right: -10px;
@@ -341,7 +341,7 @@
         .location-card {
             margin-bottom: 50px;
             background: var(--white);
-            padding: 30px 20px;
+            padding: 40px 20px;
             border-radius: 15px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
@@ -349,7 +349,13 @@
         .location-card h3 {
             font-size: 3rem;
             color: var(--emerald);
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+        }
+        .location-card .venue-name {
+            font-size: 1.5rem;
+            color: var(--emerald);
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         .map-container {
             width: 100%;
@@ -364,6 +370,11 @@
             width: 100%;
             height: 100%;
             border: none;
+        }
+        .btn-map {
+            margin-top: 10px;
+            font-size: 1rem;
+            padding: 12px 25px;
         }
 
         /* Regalos */
@@ -436,6 +447,7 @@
 </head>
 <body>
 
+    <!-- Reproductor de Audio -->
     <audio id="bg-music" loop>
         <source src="assets/song.mp3" type="audio/mpeg">
     </audio>
@@ -447,6 +459,7 @@
 
     <div class="invitation-container">
 
+        <!-- BLOQUE CLARO 1: Hero -->
         <section class="section section-light hero">
             <h1 class="names reveal">Anahy <span class="ampersand">&</span> Ariel</h1>
             
@@ -469,6 +482,7 @@
             </div>
         </section>
 
+        <!-- BLOQUE OSCURO 1: Padres y Calendario -->
         <section class="section section-dark">
             <h2 class="reveal">Con la bendición de Dios<br>y de nuestros padres</h2>
             
@@ -499,6 +513,7 @@
             <button class="btn reveal delay-2" onclick="downloadICS()">Agregar al calendario</button>
         </section>
 
+        <!-- BLOQUE CLARO 2: Itinerario y Ubicaciones -->
         <section class="section section-light">
             <h2 class="reveal" style="font-size: 3.5rem; color: var(--emerald); margin-bottom: 50px;">Itinerario</h2>
             <div class="timeline clearfix">
@@ -526,35 +541,48 @@
 
             <div class="elegant-divider reveal" style="margin: 50px auto;"></div>
 
+            <!-- Ubicación 1: Ceremonia -->
             <div class="location-card reveal">
                 <h3>Ceremonia Religiosa</h3>
-                <p style="font-size: 1.2rem; color: var(--emerald);">Nombre de la Iglesia (Pendiente)</p>
-                <p style="font-style: italic; margin-bottom: 15px;">Dirección Pendiente</p>
+                <p class="venue-name">Parroquia Cristo Rey</p>
+                
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy"></iframe>
+                    <!-- Placeholder visual del mapa -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15190.000000000000!2d-96.1429!3d19.1738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1ses-419!2smx!4v1610000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
+                
+                <!-- Botón directo hacia el enlace de Google Maps -->
+                <a href="https://share.google/gM9tICRPVaOsNCUC2" target="_blank" class="btn btn-map">Ver en Google Maps</a>
             </div>
 
+            <!-- Ubicación 2: Recepción -->
             <div class="location-card reveal delay-1">
                 <h3>Recepción</h3>
-                <p style="font-size: 1.2rem; color: var(--emerald);">Lugar del Evento (Pendiente)</p>
-                <p style="font-style: italic; margin-bottom: 15px;">Dirección Pendiente</p>
+                <p class="venue-name">Lugar del Evento</p>
+                
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=" allowfullscreen="" loading="lazy"></iframe>
+                    <!-- Placeholder visual del mapa -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15190.000000000000!2d-96.1429!3d19.1738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z!5e0!3m2!1ses-419!2smx!4v1610000000000!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy"></iframe>
                 </div>
+                
+                <!-- Botón directo hacia el enlace de Google Maps -->
+                <a href="https://maps.app.goo.gl/2r9mk9FQPDHPLoUZA" target="_blank" class="btn btn-map">Ver en Google Maps</a>
             </div>
         </section>
 
+        <!-- BLOQUE OSCURO 2: Dress Code -->
         <section class="section section-dark dress-code">
             <h2 class="reveal">Dress Code</h2>
             <p class="reveal delay-1" style="font-size: 1.8rem; letter-spacing: 2px; color: var(--white);">Formal / Elegante</p>
             <p class="reveal delay-2" style="margin-top: 20px; font-size: 1.1rem; color: rgba(255,255,255,0.7); font-style: italic;">* Se reserva el color blanco para la novia</p>
         </section>
 
+        <!-- BLOQUE CLARO 3: Mesa de Regalos -->
         <section class="section section-light">
             <h2 class="reveal" style="font-size: 3.5rem; color: var(--emerald); margin-bottom: 10px;">Mesa de Regalos</h2>
             
             <div class="gift-icon reveal delay-1">
+                <!-- Icono de sobre minimalista -->
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/>
                 </svg>
@@ -566,6 +594,7 @@
             </p>
         </section>
 
+        <!-- BLOQUE OSCURO 3: RSVP y Cierre -->
         <section class="section section-dark">
             <h2 class="reveal" style="font-size: 3.5rem; color: var(--gold); margin-bottom: 10px;">Asistencia</h2>
             <p class="reveal delay-1" style="font-size: 1.3rem;">Esperamos contar con tu presencia en este día tan especial.</p>
